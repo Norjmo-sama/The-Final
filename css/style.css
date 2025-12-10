@@ -1,6 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -77,22 +80,29 @@ header {
     width: 48%;
     text-align: center;
     position: relative;
+  overflow: hidden;
 }
 
 .feature-card img {
-    width: 878px;
-  height: 247px;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .caption {
-    background-color: #a3bf50;
-    padding: 40px 20px;
-    margin: 0 auto;
-    font-style: italic;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 839px;
+  background-color: rgba(163,191,80,0.95);
+  padding: 20px;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  text-align: center;
 }
 
 /* Wishlist */
@@ -157,8 +167,9 @@ header {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    
-    display: inline-block;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: inline-block;
 }
 
 /* Footer */
@@ -179,4 +190,107 @@ footer a {
 
 .footer-left h3 {
     margin-bottom: 8px;
+}
+
+/* Responsive Design */
+
+/* Tablets (portrait & landscape) */
+@media screen and (max-width: 1024px) {
+  .top-nav {
+    padding: 15px 30px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-links {
+    font-size: 18px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .feature-card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .feature-card img,
+  .wishlist-container img,
+  .recipe-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .caption,
+  .wishlist-container,
+  .recipe-container {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+}
+
+/* Phones */
+@media screen and (max-width: 600px) {
+  .hero img {
+    height: 200px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .top-nav {
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    font-size: 16px;
+  }
+
+  .features {
+    padding: 10px;
+  }
+
+  .feature-card {
+    width: 100%;
+  }
+
+  .caption,
+  .wishlist-container,
+  .recipe-container {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .btn {
+    position: static;
+    margin-top: 15px;
+    left: auto;
+    transform: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  footer {
+    padding: 20px;
+    font-size: 14px;
+  }
 }
