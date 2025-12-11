@@ -67,6 +67,14 @@ header {
     text-shadow: 0 0 6px black;
 }
 
+
+.media-img {
+        width: 30%;
+        height: auto;
+        margin: 8px auto 0;
+
+    }
+
 /* Footer */
 
 footer {
